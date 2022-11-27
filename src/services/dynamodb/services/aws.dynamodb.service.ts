@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { DocumentClientV3 } from '@typedorm/document-client';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { createConnection, EntityManager, getEntityManager } from '@typedorm/core';
+import { createConnection, EntityManager, getEntityManager, getScanManager, ScanManager } from '@typedorm/core';
 import { AWS_DYNAMODB_CONFIG_OPTIONS } from '../constants/aws.dynamodb.constants';
 import { AwsDynamodbModuleOptions } from '../types/aws.dynamodb.types';
 
@@ -31,6 +31,10 @@ export class AwsDynamodbService {
 
   getEntityManager(name?: string): EntityManager {
     return getEntityManager(name);
+  }
+
+  getScanManager(name: string): ScanManager {
+    return getScanManager(name);
   }
 
   private createConnections(): void {
