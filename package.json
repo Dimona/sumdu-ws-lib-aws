@@ -1,6 +1,6 @@
 {
   "name": "@workshop/lib-nest-aws",
-  "version": "0.0.4",
+  "version": "0.2.0",
   "description": "Workshop AWS library",
   "author": "Dmytro Ieremenko",
   "license": "UNLICENSED",
@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.216.0",
+    "@aws-sdk/client-sqs": "^3.218.0",
     "@aws-sdk/lib-dynamodb": "^3.216.0",
     "@nestjs/common": "^9.2.0",
     "@nestjs/config": "^2.2.0",

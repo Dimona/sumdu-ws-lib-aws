@@ -1,0 +1,3 @@
+export const AWS_SQS_CONFIG_OPTIONS = 'AWS_SQS_CONFIG_OPTIONS';
+export const AWS_SQS_CLIENT = 'AWS_SQS_CLIENT';
+export const AWS_SQS_API_VERSION = '2012-11-05';
