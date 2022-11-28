@@ -8,7 +8,7 @@ import {
   getEntityManager,
   getScanManager,
   getConnection,
-  ScanManager
+  ScanManager,
 } from '@typedorm/core';
 import { AWS_DYNAMODB_CONFIG_OPTIONS } from '../constants/aws.dynamodb.constants';
 import { AwsDynamodbModuleOptions } from '../types/aws.dynamodb.types';
