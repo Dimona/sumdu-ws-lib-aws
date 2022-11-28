@@ -1,6 +1,6 @@
 {
   "name": "@workshop/lib-nest-aws",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Workshop AWS library",
   "author": "Dmytro Ieremenko",
   "license": "UNLICENSED",
