@@ -1,5 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CloneReceiptRuleSetCommand, CloneReceiptRuleSetCommandOutput, SESClient } from '@aws-sdk/client-ses';
+import {
+  CloneReceiptRuleSetCommand,
+  CloneReceiptRuleSetCommandOutput,
+  SendEmailCommand,
+  SendEmailCommandOutput,
+  SESClient,
+} from '@aws-sdk/client-ses';
 import { AWS_SES_CONFIG_OPTIONS } from '../constants/aws.ses.constants';
 import { AwsSesModuleOptions } from '../types/aws.ses.types';
 
@@ -15,7 +21,7 @@ export class AwsSesService {
     return this.client;
   }
 
-  send(command: CloneReceiptRuleSetCommand, options?: any): Promise<CloneReceiptRuleSetCommandOutput> {
+  sendEmail(command: SendEmailCommand, options?: any): Promise<SendEmailCommandOutput> {
     return this.client.send(command, options);
   }
 }
