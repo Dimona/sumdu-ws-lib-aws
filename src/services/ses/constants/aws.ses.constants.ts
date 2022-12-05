@@ -1,0 +1,3 @@
+export const AWS_SES_CONFIG_OPTIONS = 'AWS_SES_CONFIG_OPTIONS';
+export const AWS_SES_CLIENT = 'AWS_SES_CLIENT';
+export const AWS_SES_API_VERSION = '2010-12-01';
