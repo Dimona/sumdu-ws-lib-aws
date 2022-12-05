@@ -7,10 +7,10 @@ import { AwsSesService } from './services/aws.ses.service';
 @Module({
   imports: [AwsModule],
 })
-export class AwsSqsModule {
+export class AwsSesModule {
   public static register(options: AwsSesModuleOptions): DynamicModule {
     return {
-      module: AwsSqsModule,
+      module: AwsSesModule,
       providers: [
         {
           provide: AWS_SES_CONFIG_OPTIONS,
@@ -24,7 +24,7 @@ export class AwsSqsModule {
 
   public static registerAsync(options: AwsSesAsyncModuleOptions): DynamicModule {
     return {
-      module: AwsSqsModule,
+      module: AwsSesModule,
       imports: options.imports ?? [],
       providers: [
         {
