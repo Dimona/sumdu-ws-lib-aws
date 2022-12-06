@@ -3,6 +3,8 @@ import { AwsModule } from '../../modules/aws.module';
 import { AwsSesAsyncModuleOptions, AwsSesModuleOptions } from './types/aws.ses.types';
 import { AWS_SES_CONFIG_OPTIONS } from './constants/aws.ses.constants';
 import { AwsSesService } from './services/aws.ses.service';
+import { AwsSesEmailService } from './services/aws.ses.email.service';
+import { AwsSesTemplateService } from './services/aws.ses.template.service';
 
 @Module({
   imports: [AwsModule],
@@ -17,8 +19,10 @@ export class AwsSesModule {
           useValue: options,
         },
         AwsSesService,
+        AwsSesEmailService,
+        AwsSesTemplateService,
       ],
-      exports: [AwsSesService],
+      exports: [AwsSesService, AwsSesEmailService, AwsSesTemplateService],
     };
   }
 
@@ -33,8 +37,11 @@ export class AwsSesModule {
           inject: options.inject,
         },
         AwsSesService,
+        AwsSesEmailService,
+        AwsSesTemplateService,
+        ,
       ],
-      exports: [AwsSesService],
+      exports: [AwsSesService, AwsSesEmailService, AwsSesTemplateService],
     };
   }
 }

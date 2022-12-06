@@ -5,7 +5,7 @@ export type AwsSesModuleOptions = {
   client?: SESClientConfig;
   email: {
     source: string;
-  }
+  };
 };
 
 export type AwsSesAsyncModuleOptions = Pick<ModuleMetadata, 'imports'> &

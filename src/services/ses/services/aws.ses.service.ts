@@ -1,10 +1,20 @@
 import { Inject, Injectable } from '@nestjs/common';
 import {
-  CloneReceiptRuleSetCommand,
-  CloneReceiptRuleSetCommandOutput,
+  CreateTemplateCommand,
+  CreateTemplateCommandInput,
+  CreateTemplateCommandOutput,
+  DeleteTemplateCommand,
+  DeleteTemplateCommandInput,
+  DeleteTemplateCommandOutput,
+  GetTemplateCommand,
+  GetTemplateCommandOutput,
   SendEmailCommand,
+  SendEmailCommandInput,
   SendEmailCommandOutput,
   SESClient,
+  UpdateTemplateCommand,
+  UpdateTemplateCommandInput,
+  UpdateTemplateCommandOutput,
 } from '@aws-sdk/client-ses';
 import { AWS_SES_CONFIG_OPTIONS } from '../constants/aws.ses.constants';
 import { AwsSesModuleOptions } from '../types/aws.ses.types';
@@ -21,7 +31,23 @@ export class AwsSesService {
     return this.client;
   }
 
-  sendEmail(command: SendEmailCommand, options?: any): Promise<SendEmailCommandOutput> {
-    return this.client.send(command, options);
+  sendEmail(input: SendEmailCommandInput, options?: any): Promise<SendEmailCommandOutput> {
+    return this.client.send(new SendEmailCommand(input), options);
+  }
+
+  getTemplate(name: string, options?: any): Promise<GetTemplateCommandOutput> {
+    return this.client.send(new GetTemplateCommand({ TemplateName: name }), options);
+  }
+
+  createTemplate(input: CreateTemplateCommandInput, options?: any): Promise<CreateTemplateCommandOutput> {
+    return this.client.send(new CreateTemplateCommand(input), options);
+  }
+
+  updateTemplate(input: UpdateTemplateCommandInput, options?: any): Promise<UpdateTemplateCommandOutput> {
+    return this.client.send(new UpdateTemplateCommand(input), options);
+  }
+
+  deleteTemplate(input: DeleteTemplateCommandInput, options?: any): Promise<DeleteTemplateCommandOutput> {
+    return this.client.send((new DeleteTemplateCommand(input), options));
   }
 }
