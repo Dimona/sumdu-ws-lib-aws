@@ -36,6 +36,6 @@ export class AwsSesTemplateService {
   }
 
   delete(input: DeleteTemplateCommandInput, options?: any): Promise<DeleteTemplateCommandOutput> {
-    return this.client.send((new DeleteTemplateCommand(input), options));
+    return this.client.send(new DeleteTemplateCommand(input), options);
   }
 }
