@@ -39,7 +39,6 @@ export class AwsSesModule {
         AwsSesService,
         AwsSesEmailService,
         AwsSesTemplateService,
-        ,
       ],
       exports: [AwsSesService, AwsSesEmailService, AwsSesTemplateService],
     };
