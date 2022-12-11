@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SendMessageCommand, SendMessageCommandOutput, SQSClient } from '@aws-sdk/client-sqs';
+import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput, SQSClient } from '@aws-sdk/client-sqs';
 import { AWS_SQS_CONFIG_OPTIONS } from '../constants/aws.sqs.constants';
 import { AwsSqsModuleOptions } from '../types/aws.sqs.types';
 
@@ -15,7 +15,7 @@ export class AwsSqsService {
     return this.client;
   }
 
-  send(command: SendMessageCommand, options?: any): Promise<SendMessageCommandOutput> {
-    return this.client.send(command, options);
+  sendMessage(input: SendMessageCommandInput, options?: any): Promise<SendMessageCommandOutput> {
+    return this.client.send(new SendMessageCommand(input), options);
   }
 }
